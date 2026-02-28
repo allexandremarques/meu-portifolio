@@ -1,0 +1,177 @@
+/* Reset mínimo moderno (não precisa de reset.css inteiro) */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis globais – defina suas cores favoritas aqui */
+:root {
+    --primary: #e3d1ba;
+    /* azul principal, mude pro que quiser */
+    --primary-dark: #c7b7a3;
+    /* hover/focus */
+    --text: #c7b7a3;
+    --text-light: #e8d7c3;
+    --bg: #561c24;
+    --gray: #6d2932;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --font-base: system-ui, -apple-system, sans-serif;
+    /* fonte moderna e rápida */
+}
+
+/* Pra dark mode futuro (vamos usar depois) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #e3d1ba;
+        --text: #c7b7a3;
+        --bg: #561c24;
+        --gray: #6d2932;
+    }
+}
+
+header {
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--gray);
+    position: sticky;
+    /* fica fixo no topo ao scroll */
+    top: 0;
+    z-index: 1000;
+    /* fica acima de tudo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* sombra sutil */
+}
+
+.container {
+    max-width: 1200px;
+    /* largura máxima pro conteúdo */
+    margin: 0 auto;
+    /* centraliza */
+    padding: 0 var(--spacing-sm);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    /* logo esquerda, nav direita */
+    align-items: center;
+    height: 70px;
+    /* altura fixa pro header */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: var(--primary-dark);
+}
+
+nav {
+    /* por enquanto nada específico */
+}
+
+nav ul {
+    list-style: none;
+    /* tira bullets */
+    display: flex;
+    /* horizontal no desktop */
+    gap: var(--spacing-sm);
+    /* espaço entre itens */
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    /* animação suave */
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--gray);
+    color: var(--primary);
+}
+
+.menu-toggle {
+    display: none;
+    /* escondido no desktop */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* Ícone de 3 linhas com CSS puro (sem imagem) */
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--text);
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+/* Faz o hamburger ficar à direita no mobile */
+@media (max-width: 768px) {
+    .header-inner {
+        justify-content: space-between;
+        /* reforça: logo esq, hamburger dir */
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3;
+        /* força ele pro final do flex, caso ordem mude */
+    }
+
+    nav {
+        order: 2;
+        /* nav fica no meio, mas como some, não afeta */
+    }
+
+    /* Menu dropdown quando aberto */
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        /* logo abaixo do header */
+        left: 0;
+        width: 100%;
+        background: var(--bg);
+        flex-direction: column;
+        padding: var(--spacing-md) var(--spacing-sm);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
+
+/* Estilo extra pro hamburger (melhor visual) */
+.menu-toggle {
+    padding: 0.5rem;
+}
+
+/* Quando o menu estiver aberto, muda o ícone para X (opcional, mas bonito) */
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}

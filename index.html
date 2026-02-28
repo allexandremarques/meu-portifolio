@@ -1,39 +1,29 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alexandre | Desenvolvedor Front-end</title>
-    <meta name="description" content="Desenvolvedor Front-end apaixonado por HTML, CSS, JavaScript e interfaces modernas. Portfólio com projetos reais e experiência prática."/>
+    <meta name="description"
+        content="Desenvolvedor Front-end apaixonado por HTML, CSS, JavaScript e interfaces modernas. Portfólio com projetos reais e experiência prática." />
     <!-- Open Graph / Facebook, LinkedIn, WhatsApp preview -->
     <meta property="og:title" content="Alexandre - Desenvolvedor Front-end" />
-    <meta
-        property="og:description"
-        content="Confira meus projetos e habilidades em front-end. Vamos construir algo incrível juntos?"
-    />
+    <meta property="og:description"
+        content="Confira meus projetos e habilidades em front-end. Vamos construir algo incrível juntos?" />
     <meta property="og:image" content="assets/images/og-image.jpg" />
     <!-- crie uma imagem 1200x630 depois -->
-    <meta
-        property="og:url"
-        content="https://seuusuario.github.io/meu-portifolio/"
-    />
+    <meta property="og:url" content="https://seuusuario.github.io/meu-portifolio/" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Cards (opcional, mas fica bonito) -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Alexandre - Front-end Developer" />
-    <meta
-        name="twitter:description"
-        content="Portfólio com projetos reais em HTML, CSS e JS."
-    />
+    <meta name="twitter:description" content="Portfólio com projetos reais em HTML, CSS e JS." />
 
     <!-- Favicon (ícone da aba) - use gerador online tipo realfavicongenerator.net -->
     <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon" />
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="assets/icons/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
 
     <!-- Pré-conexões para performance (opcional, mas ajuda se usar Google Fonts, etc.) -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
@@ -43,9 +33,31 @@
 </head>
 
 <body><!-- Aqui dentro vai todo o conteúdo visível -->
-    
-    <header><!-- Navbar, logo, menu -->
 
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <!-- Logo à esquerda -->
+                <a href="/" class="logo">Alexandre</a>
+
+                <!-- Navegação (escondida no mobile) -->
+                <nav aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Hamburger (só visível no mobile) – fica à direita -->
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
     </header>
 
     <main><!-- Conteúdo principal: hero, about, skills, projects, contact... -->
@@ -53,10 +65,11 @@
     </main>
 
     <footer><!-- Rodapé, copyright, links sociais -->
-        
+
     </footer>
 
     <script src="js/main.js" defer></script><!-- defer → carrega JS no final, mas executa depois que o HTML parsear -->
-    
+
 </body>
+
 </html>
